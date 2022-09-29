@@ -1,0 +1,85 @@
+.projects {
+  width: 100%;
+}
+
+.projects_innerContainer {
+  height: 100vh;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 300vh;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  gap: 40px;
+}
+
+.textContainer {
+  width: 50%;
+  height: 90%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.project_no {
+  font-size: 30px;
+  font-weight: 700;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.project_name {
+  font-size: 85px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  text-transform: capitalize;
+}
+
+.project_skill {
+  font-size: 30px;
+  font-weight: 500;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.project_skill-ball {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.project_description {
+  font-family: "Catamaran", sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 48px;
+}
+
+.project_type {
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.images_Container {
+  width: 50%;
+  position: relative;
+}
+
+.img1,
+.img2 {
+  max-width: 80%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 200px;
+  /* position: absolute; */
+}
