@@ -1,20 +1,28 @@
 .projects {
   width: 100%;
+  margin-bottom: 400px;
 }
 
-.projects_innerContainer {
-  height: 100vh;
-  width: 90%;
+.projects_container {
+  display: flex;
+}
+.project {
+  min-width: 100vw;
+  background: white;
+  display: flex;
+}
+.project_inner-container {
+  max-width: 1500px;
+  width: 100%;
+  height: 90vh;
   margin: auto;
-  margin-bottom: 300vh;
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
-  gap: 40px;
 }
 
 .textContainer {
   width: 50%;
+  min-width: max-content;
   height: 90%;
   position: relative;
   display: flex;
@@ -71,15 +79,11 @@
 }
 
 .images_Container {
-  width: 50%;
+  display: flex;
+  align-items: center;
   position: relative;
 }
 
-.img1,
-.img2 {
-  max-width: 80%;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 200px;
-  /* position: absolute; */
+.project_img {
+  width: 300px;
 }

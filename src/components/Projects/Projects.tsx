@@ -5,56 +5,132 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 import img1 from "../../Assets/img/music-app-2.png";
 import img2 from "../../Assets/img/music-app-1.png";
+import img3 from "../../Assets/img/music-app-3.png";
+
+const projectData = [
+  {
+    projectName: "Music App",
+    skill: "Next.Js",
+    description: "A Music App using Next.Js and Spotify API",
+    type: "web app",
+    images: [img1, img2, img3],
+  },
+  {
+    projectName: "Ecommerce App",
+    skill: "Next.Js",
+    description: "A Ecommerce App using Next.Js, MUI and Firebase",
+    type: "web app",
+    images: [img1, img2, img3],
+  },
+  {
+    projectName: "Movie App",
+    skill: "React.Js",
+    description: "A Movie App using React.Js and TheMovieDB API",
+    type: "web app",
+    images: [img1, img2, img3],
+  },
+  {
+    projectName: "Landing Page",
+    skill: "Next.Js",
+    description: "A Landing Page using Next.Js and MUI",
+    type: "web app",
+    images: [img1, img2, img3],
+  },
+];
 
 const Projects = () => {
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.create({
-      trigger: "#textContainer",
-      pin: true,
-      start: "center center",
-      end: "+=3000",
-    });
-    const tl = gsap.timeline({
-      scrollTrigger: {
+    const ctx = gsap.context(() => {
+      gsap.registerPlugin(ScrollTrigger);
+      const tl = gsap.timeline();
+      const sections = gsap.utils.toArray("#singleProject");
+
+      tl.to("#projectContainer", {
+        duration: 5,
+        xPercent: -100 * (sections.length - 1),
+      });
+
+      ScrollTrigger.create({
+        animation: tl,
         trigger: "#projectContainer",
+        start: "center center",
         scrub: true,
-        start: "top bottom",
-      },
+        pin: true,
+        end: "+=10000",
+      });
     });
-    tl.from("#img1", { y: "400vh" });
-    tl.fromTo("#img2", { x: 800, opacity: 0 }, { x: 0, opacity: 1 });
+    return () => ctx.revert();
   }, []);
+
   return (
     <section className={styles.projects}>
-      <div id="projectContainer" className={styles.projects_innerContainer}>
-        {/* text container */}
-        <div id="textContainer" className={styles.textContainer}>
-          <p className={styles.project_no}>01</p>
+      <div id="projectContainer" className={styles.projects_container}>
+        {projectData.map((item, i) => (
+          <div id="singleProject" key={i} className={styles.project}>
+            <div className={styles["project_inner-container"]}>
+              <div className={styles.textContainer}>
+                <p className={styles.project_no}>0{i + 1}</p>
 
-          <div>
-            <h2 className={styles.project_name}>Music App</h2>
-            <h6 className={styles.project_skill}>
-              Frontend Developer
-              <span className={styles["project_skill-ball"]} />
-              Next.Js
-            </h6>
-            <p className={styles.project_description}>
-              A Music App using Next.Js and Spotify API
-            </p>
+                <div>
+                  <h2 className={styles.project_name}>{item.projectName}</h2>
+                  <h6 className={styles.project_skill}>
+                    Frontend Developer
+                    <span className={styles["project_skill-ball"]} />
+                    {item.skill}
+                  </h6>
+                  <p className={styles.project_description}>
+                    {item.description}
+                  </p>
+                </div>
+
+                <p className={styles.project_type}>{item.type}</p>
+              </div>
+
+              <div className={styles.images_Container}>
+                {item.images.map((image, i) => (
+                  <img
+                    className={styles.project_img}
+                    key={i}
+                    src={image}
+                    alt="img"
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-
-          <p className={styles.project_type}>Web App</p>
-        </div>
-
-        {/* images container */}
-        <div className={styles.images_Container}>
-          <img id="img1" className={styles.img2} src={img1} alt="img1" />
-          <img id="img2" className={styles.img1} src={img2} alt="img2" />
-        </div>
+        ))}
       </div>
     </section>
   );
 };
 
 export default Projects;
+
+{
+  /* <div id="projectContainer2" className={styles.projects_innerContainer}>
+  <div id="textContainer2" className={styles.textContainer}>
+    <p className={styles.project_no}>02</p>
+
+    <div>
+      <h2 className={styles.project_name}>Testing App</h2>
+      <h6 className={styles.project_skill}>
+        Frontend Developer
+        <span className={styles["project_skill-ball"]} />
+        Next.Js
+      </h6>
+      <p className={styles.project_description}>
+        A Music App using Next.Js and Spotify API
+      </p>
+    </div>
+
+    <p className={styles.project_type}>Web App</p>
+  </div>
+
+ 
+  <div className={styles.images_Container}>
+    <img id="img1-2" className={styles.img2} src={img1} alt="img1" />
+    <img id="img2-2" className={styles.img1} src={img2} alt="img2" />
+    <img id="img3-2" className={styles.img3} src={img3} alt="img3" />
+  </div>
+</div>; */
+}
