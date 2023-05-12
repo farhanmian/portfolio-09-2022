@@ -1,0 +1,34 @@
+.section {
+  width: 100%;
+  height: 100vh;
+  /* margin-top: 30vh; */
+}
+.contact_innerContainer {
+  max-width: 1320px;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 120px;
+  /* position: relative; */
+}
+
+.contact_innerContainer a {
+  width: 100px;
+  cursor: pointer;
+}
+.contact_innerContainer a svg {
+  width: 100%;
+  height: 100%;
+}
+
+.heading {
+  font-size: 200px;
+  font-weight: 700;
+  color: #eee;
+  text-transform: uppercase;
+  position: absolute;
+  left: -30%;
+  z-index: -1;
+}

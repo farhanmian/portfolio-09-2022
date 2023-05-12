@@ -6,13 +6,16 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 const Skills = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.from("#heading", {
+
+    gsap.to("#skillHeading", {
       scrollTrigger: {
         trigger: "#skillsSection",
-        start: "center bottom",
+        start: "top bottom",
         scrub: true,
       },
-      x: "30vw",
+      duration: 2000,
+      right: "30%",
+      ease: "ease-in",
     });
   }, []);
 
@@ -48,7 +51,7 @@ const Skills = () => {
         </div>
       </div>
 
-      <h1 id="heading" className={styles.skills_heading}>
+      <h1 id="skillHeading" className={styles.skills_heading}>
         Skills
       </h1>
     </section>
