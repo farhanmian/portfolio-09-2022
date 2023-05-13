@@ -56,7 +56,7 @@ const Projects = () => {
         start: "center center",
         scrub: true,
         pin: true,
-        end: "+=10000",
+        end: "+=8000",
       });
     });
     return () => ctx.revert();
