@@ -7,9 +7,12 @@ import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 const icons = [
-  <GitHubIcon key="github" />,
-  <MailIcon key="mail" />,
-  <LinkedinIcon key="linkedin" />,
+  { icon: <GitHubIcon key="github" />, link: "https://github.com/farhanmian" },
+  { icon: <MailIcon key="mail" />, link: "mailto:farhanmian099@gmail.com" },
+  {
+    icon: <LinkedinIcon key="linkedin" />,
+    link: "https://www.linkedin.com/in/farhan-mian-7aa5b21a3/",
+  },
 ];
 
 const Contact = () => {
@@ -31,7 +34,9 @@ const Contact = () => {
     <section id="contactSection" className={styles.section}>
       <div className={styles.contact_innerContainer}>
         {icons.map((item, i) => (
-          <a key={i}>{item}</a>
+          <a href={item.link} target="_blank" rel="noreferrer" key={i}>
+            {item.icon}
+          </a>
         ))}
         <h1 id="contactHeading" className={styles.heading}>
           Contact
