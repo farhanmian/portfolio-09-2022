@@ -1,6 +1,7 @@
 .header {
   width: 100%;
   height: 100vh;
+  margin-bottom: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,27 +10,35 @@
 .header_innerContainer {
   text-align: center;
   color: #000;
-  position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.header_innerContainer-name {
+.text_container {
+  max-width: max-content;
+  /* margin: auto; */
+  /* margin-top: 150px; */
+}
+
+.name {
   font-size: 70px;
   font-weight: 600;
   font-family: Rockybilly;
   height: 250px;
   margin-bottom: 50px;
-  position: absolute;
+  /* position: absolute;
   left: 50%;
   top: 40%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
-.header_innerContainer-role {
+.role {
   font-size: 50px;
   font-weight: 400;
-  position: absolute;
+  /* position: absolute;
   left: 50%;
   top: 60%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }

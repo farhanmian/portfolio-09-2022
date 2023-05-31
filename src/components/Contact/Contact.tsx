@@ -5,10 +5,15 @@ import MailIcon from "../icons/MailIcon";
 import LinkedinIcon from "../icons/LinkedinIcon";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import ResumeIcon from "../icons/ResumeIcon";
 
 const icons = [
   { icon: <GitHubIcon key="github" />, link: "https://github.com/farhanmian" },
   { icon: <MailIcon key="mail" />, link: "mailto:farhanmian099@gmail.com" },
+  {
+    icon: <ResumeIcon key="linkedin" />,
+    link: "https://drive.google.com/file/d/1bPHyq6qj2wOsqnEWDNOYO-jn9GXpxw5b/view?usp=share_link",
+  },
   {
     icon: <LinkedinIcon key="linkedin" />,
     link: "https://www.linkedin.com/in/farhan-mian-7aa5b21a3/",

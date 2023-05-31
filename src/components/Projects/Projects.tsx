@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Projects.module.css";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -20,21 +20,21 @@ const projectData = [
     projectName: "Music App",
     skill: "Next.Js",
     description: "A Music App using Next.Js and Spotify API",
-    type: "web app",
+    siteLink: "https://music-app-liard.vercel.app/",
     images: [musicAppImg1, musicAppImg2, musicAppImg3],
   },
   {
     projectName: "Ecommerce App",
     skill: "Next.Js",
     description: "A Ecommerce App using Next.Js, MUI and Firebase",
-    type: "web app",
+    siteLink: "https://ecommerce-app-six.vercel.app/",
     images: [ecommerceImg1, ecommerceImg2, ecommerceImg3],
   },
   {
     projectName: "Landing Page",
     skill: "Next.Js",
     description: "A Landing Page using Next.Js and MUI",
-    type: "web app",
+    siteLink: "https://alivio-landing-page-bay.vercel.app/",
     images: [landingPageImg1, landingPageImg2, landingPageImg3],
   },
   // {
@@ -47,7 +47,16 @@ const projectData = [
 ];
 
 const Projects = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
+    const deviceType = window.navigator.userAgent.includes("Mobile");
+    setIsMobile(deviceType);
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (isMobile) return;
+
     const ctx = gsap.context(() => {
       gsap.registerPlugin(ScrollTrigger);
       const tl = gsap.timeline();
@@ -68,7 +77,7 @@ const Projects = () => {
       });
     });
     return () => ctx.revert();
-  }, []);
+  }, [isMobile]);
 
   const hideOverlay = (projectOverlayId: string, projectId: string) => {
     const timeLine = gsap.timeline();
@@ -83,20 +92,25 @@ const Projects = () => {
     ScrollTrigger.create({
       animation: timeLine,
       trigger: `.project${projectId}`,
-      start: "center center",
-      // markers: true,
+      start: "top center",
     });
   };
 
-  // useEffect(() => {
-  //   hideOverlay("1", "1");
-  //   hideOverlay("2", "2");
-  //   hideOverlay("3", "3");
-  // }, []);
+  useEffect(() => {
+    if (!isMobile) return;
+    hideOverlay("1", "1");
+    hideOverlay("2", "2");
+    hideOverlay("3", "3");
+  }, [isMobile]);
 
   return (
     <section className={styles.projects}>
-      <div id="projectContainer" className={styles.projects_container}>
+      <div
+        id="projectContainer"
+        className={`${styles.projects_container} ${
+          isMobile ? styles["mobile_project-container"] : ""
+        }`}
+      >
         {projectData.map((item, i) => (
           <div
             id="singleProject"
@@ -143,13 +157,18 @@ const Projects = () => {
                   </p>
                 </div>
 
-                <p className={styles.project_type}>
-                  {item.type}
+                <a
+                  href={item.siteLink}
+                  rel="noreferrer"
+                  target="_blank"
+                  className={styles.project_link}
+                >
+                  View Site
                   <span
                     id={`projectBalckOverlay${i + 1}`}
                     className={styles.blackOverlay}
                   />
-                </p>
+                </a>
               </div>
 
               <div className={styles.images_Container}>

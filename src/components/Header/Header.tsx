@@ -13,16 +13,18 @@ const Header = () => {
     });
   }, []);
   return (
-    <section className={styles.header}>
+    <header className={styles.header}>
       <div className={styles.header_innerContainer}>
-        <h1 id="slideIn" className={styles["header_innerContainer-name"]}>
-          Farhan Hussain
-        </h1>
-        <h2 id="slideIn" className={styles["header_innerContainer-role"]}>
-          Front-end Developer
-        </h2>
+        <div className={styles.text_container}>
+          <h1 id="slideIn" className={styles.name}>
+            Farhan Hussain
+          </h1>
+          <h2 id="slideIn" className={styles.role}>
+            Front-end Developer
+          </h2>
+        </div>
       </div>
-    </section>
+    </header>
   );
 };
 
