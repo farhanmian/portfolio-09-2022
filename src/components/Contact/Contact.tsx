@@ -12,7 +12,7 @@ const icons = [
   { icon: <MailIcon key="mail" />, link: "mailto:farhanmian099@gmail.com" },
   {
     icon: <ResumeIcon key="linkedin" />,
-    link: "https://drive.google.com/file/d/1bPHyq6qj2wOsqnEWDNOYO-jn9GXpxw5b/view?usp=share_link",
+    link: "https://drive.google.com/file/d/1eeA99O4GC12FJtMUTdocapCUfAN-tmmU/view?usp=sharing",
   },
   {
     icon: <LinkedinIcon key="linkedin" />,
